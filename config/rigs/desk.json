@@ -1,0 +1,32 @@
+{
+  "name": "desk",
+  "description": "Single-cluster development rig with seven prisms.",
+  "network": {
+    "ip_base": "192.168.10.",
+    "port": 7777
+  },
+  "clusters": [10],
+  "prisms_per_cluster": 7,
+  "safe_motion": {
+    "position_min_mm": 0,
+    "position_max_mm": 550,
+    "default_move_mm": 40,
+    "position_tolerance_mm": 5
+  },
+  "home_parameters": {
+    "travel_limit": 250,
+    "max_velocity": 20,
+    "run_current": 50,
+    "stall_threshold": 10
+  },
+  "controller_parameters": {
+    "start_velocity": 10,
+    "stop_velocity": 10,
+    "first_velocity": 40,
+    "max_velocity": 40,
+    "first_acceleration": 120,
+    "max_acceleration": 80,
+    "max_deceleration": 80,
+    "first_deceleration": 120
+  }
+}

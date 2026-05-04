@@ -1,0 +1,18 @@
+[submodule "firmware/ClusterController"]
+	path = firmware/ClusterController
+	url = git@github.com:janelia-arduino/ClusterController.git
+[submodule "libraries/TMC51X0"]
+	path = libraries/TMC51X0
+	url = git@github.com:janelia-arduino/TMC51X0.git
+[submodule "libraries/TCA6408"]
+	path = libraries/TCA6408
+	url = git@github.com:janelia-arduino/TCA6408.git
+[submodule "software/hex_maze_interface_python"]
+	path = software/hex_maze_interface_python
+	url = git@github.com:janelia-python/hex_maze_interface_python.git
+[submodule "pcb/cluster-pcb"]
+	path = pcb/cluster-pcb
+	url = git@github.com:janelia-kicad/cluster-pcb.git
+[submodule "pcb/prism-pcb"]
+	path = pcb/prism-pcb
+	url = git@github.com:janelia-kicad/prism-pcb.git
