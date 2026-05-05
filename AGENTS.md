@@ -27,6 +27,24 @@ live in git submodules and keep their own commit histories.
 - Do not run homing, movement, flashing, or power-cycle commands unless the user
   has made it clear that hardware interaction is intended.
 
+## Current Hardware Debug Context
+
+- The active bug is an intermittent post-home stationary prism: after homing,
+  one or more prisms may stop responding to movement commands until reset or
+  power cycle, while the rest of the prisms keep moving.
+- The current desk test maze is a single cluster of seven prisms, expected at
+  address `10`. It can be controlled over Ethernet by
+  `software/hex_maze_interface_python` or reflashed over USB.
+- The researcher workflow to reproduce is random repeated moves to positions up
+  to about `400 mm`, followed by incremental homing passes. Each homing pass uses
+  a `100 mm` home travel/home position so only prisms within the next `100 mm` of
+  the hard stop complete that pass; repeated passes continue until every prism
+  has hit the hard stop and homed.
+- In several days, testing should expand to the full hex-maze: seven clusters,
+  addresses `10..16`, seven prisms each, for `49` total prisms.
+- Persistent investigation notes and the current test plan live in
+  `docs/debugging/post-home-stationary-prism.md`.
+
 ## Useful Commands
 
 - `make submodule-status`

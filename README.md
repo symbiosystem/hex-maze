@@ -55,6 +55,12 @@ identify a related repeated-home state inconsistency:
 - `home_outcome = STALL`
 - `position = 0`
 
+The active reproduction target is the researcher workflow: repeated random moves
+up to about `400 mm`, then repeated incremental `100 mm` home passes until every
+prism has hit the hard stop, followed by the first post-home movement check.
+See `docs/debugging/post-home-stationary-prism.md` for the desk-rig and full-rig
+investigation plan.
+
 The central workflow is to reproduce the issue with Python hardware tests,
 instrument firmware only when needed, commit fixes in the owning submodule, and
 then update this repository's submodule pointer to preserve the tested state.

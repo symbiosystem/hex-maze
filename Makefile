@@ -28,11 +28,15 @@ desk-verify:
 
 .PHONY: desk-smoke
 desk-smoke:
-	cd software/hex_maze_interface_python && python hardware_smoke_test.py --clusters 10
+	cd software/hex_maze_interface_python && pixi run python hardware_smoke_test.py --clusters 10
 
 .PHONY: desk-repeated-home
 desk-repeated-home:
-	cd software/hex_maze_interface_python && python hardware_repeated_home_test.py --cluster 10 --trial-count 10 --home-repeat-count 5
+	cd software/hex_maze_interface_python && pixi run python hardware_repeated_home_test.py --cluster 10 --trial-count 10 --home-repeat-count 5
+
+.PHONY: desk-incremental-home-stress
+desk-incremental-home-stress:
+	cd software/hex_maze_interface_python && pixi run python hardware_incremental_home_stress_test.py --cluster 10
 
 .PHONY: full-verify
 full-verify:
@@ -40,8 +44,12 @@ full-verify:
 
 .PHONY: full-smoke
 full-smoke:
-	cd software/hex_maze_interface_python && python hardware_smoke_test.py --clusters 10 11 12 13 14 15 16
+	cd software/hex_maze_interface_python && pixi run python hardware_smoke_test.py --clusters 10 11 12 13 14 15 16
 
 .PHONY: full-repeated-home
 full-repeated-home:
-	cd software/hex_maze_interface_python && for cluster in 10 11 12 13 14 15 16; do python hardware_repeated_home_test.py --cluster $$cluster --trial-count 10 --home-repeat-count 5 || exit $$?; done
+	cd software/hex_maze_interface_python && for cluster in 10 11 12 13 14 15 16; do pixi run python hardware_repeated_home_test.py --cluster $$cluster --trial-count 10 --home-repeat-count 5 || exit $$?; done
+
+.PHONY: full-incremental-home-stress
+full-incremental-home-stress:
+	cd software/hex_maze_interface_python && for cluster in 10 11 12 13 14 15 16; do pixi run python hardware_incremental_home_stress_test.py --cluster $$cluster || exit $$?; done
